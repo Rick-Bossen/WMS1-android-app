@@ -7,7 +7,7 @@ public class Validation {
         return mail.matches("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)");
     }
 
-    public static boolean validatePassword(String password) {
+    public static boolean validateUsername(String password) {
         return password.matches("(^[a-zA-Z0-9]{4,32}$)");
     }
 }
