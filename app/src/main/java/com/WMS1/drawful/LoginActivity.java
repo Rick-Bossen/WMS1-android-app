@@ -47,12 +47,19 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/login" , jsonObject, new Response.Listener<JSONObject>() {
+                    (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/login", jsonObject, new Response.Listener<JSONObject>() {
 
                         @Override
                         public void onResponse(JSONObject response) { //TODO tokens opslaan en join scherm tonen
                             Toast toast = Toast.makeText(getApplicationContext(), "Response: " + response.toString(), Toast.LENGTH_SHORT);
                             toast.show();
+                             SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
+                            try {
+                                manager.setToken(response.getString("access_token"));
+                                manager.setRefresh(response.getString("refresh"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }, new Response.ErrorListener() {
 
