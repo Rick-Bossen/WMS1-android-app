@@ -1,10 +1,18 @@
 <resources>
+    <!-- TextView with Manrope as font -->
+    <style name="ManropeTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/manrope</item>
+        <item name="android:textColorPrimary">@color/colorFont</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:textViewStyle">@style/ManropeTextViewStyle</item>
     </style>
 
     <style name="FullscreenTheme" parent="AppTheme">
