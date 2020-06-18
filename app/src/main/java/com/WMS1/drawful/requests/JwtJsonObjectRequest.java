@@ -23,52 +23,31 @@ public class JwtJsonObjectRequest extends JsonObjectRequest {
     private Context context;
 
     public JwtJsonObjectRequest(int method, String url, @Nullable JSONObject jsonRequest, Response.Listener<JSONObject> listener, @Nullable final Response.ErrorListener errorListener, final Context context) {
-        super(method, url, jsonRequest, listener, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if (error.networkResponse.statusCode == 422) {
-                    System.out.println(SharedPrefrencesManager.getInstance(context).getToken());
-                    Toast toast = Toast.makeText(context, "Please log in", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                else if (error.networkResponse.statusCode == 401) {
-                    RefreshJsonObjectRequest refreshjsonObjectRequest = new RefreshJsonObjectRequest
-                            (new Response.Listener<JSONObject>() {
-
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    try {
-                                        SharedPrefrencesManager.getInstance(context).setToken(response.getString("access_token"));
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                    Toast toast = Toast.makeText(context, " Refreshed: " + response.toString(), Toast.LENGTH_SHORT);
-                                    toast.show();
-                                }
-                            }, new Response.ErrorListener() {
-
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    assert errorListener != null;
-                                    errorListener.onErrorResponse(error);
-                                }
-                            }, context);
-                    RequestQueueSingleton.getInstance(context).addToRequestQueue(refreshjsonObjectRequest);
-                } else if (errorListener != null) {
-                    errorListener.onErrorResponse(error);
-                }
-            }
-        });
+        super(method, url, jsonRequest, listener, error -> handleError(error, context, errorListener));
         this.context = context;
     }
     @Override
-    public Map<String, String> getHeaders() throws AuthFailureError {
-        Map<String, String> params = new HashMap<String, String>();
+    public Map<String, String> getHeaders() {
+        Map<String, String> params = new HashMap<>();
         String token = SharedPrefrencesManager.getInstance(context).getToken();
         params.put("Authorization", "Bearer "+ token);
         return params;
     }
 
+    private static void handleError(VolleyError error, Context context, Response.ErrorListener errorListener){
+        if (error.networkResponse.statusCode == 422) {
+            System.out.println(SharedPrefrencesManager.getInstance(context).getToken());
+            Toast toast = Toast.makeText(context, "Please log in", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else if (error.networkResponse.statusCode == 401) {
+
+            RefreshJsonObjectRequest refreshjsonObjectRequest = new RefreshJsonObjectRequest(errorListener, context);
+            RequestQueueSingleton.getInstance(context).addToRequestQueue(refreshjsonObjectRequest);
+
+        } else if (errorListener != null) {
+            errorListener.onErrorResponse(error);
+        }
+    }
 
 }
