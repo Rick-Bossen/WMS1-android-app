@@ -1,14 +1,16 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.requests;
 
 import android.content.Context;
 import android.widget.Toast;
 
+import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.annotation.Nullable;
@@ -31,10 +33,16 @@ public class JwtJsonObjectRequest extends JsonObjectRequest {
                 }
                 else if (error.networkResponse.statusCode == 401) {
                     RefreshJsonObjectRequest refreshjsonObjectRequest = new RefreshJsonObjectRequest
-                            (Request.Method.GET, RequestQueueSingleton.BASE_URL + "/user/refresh", null, new Response.Listener<JSONObject>() {
+                            (Request.Method.POST, RequestQueueSingleton.BASE_URL + "/user/refresh", null, new Response.Listener<JSONObject>() {
 
                                 @Override
                                 public void onResponse(JSONObject response) {
+                                    try {
+                                        SharedPrefrencesManager.getInstance(context).setToken(response.getString("access_token"));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
                                     Toast toast = Toast.makeText(context, " Refreshed: " + response.toString(), Toast.LENGTH_SHORT);
                                     toast.show();
                                 }
@@ -61,4 +69,6 @@ public class JwtJsonObjectRequest extends JsonObjectRequest {
         params.put("Authorization", "Bearer "+ token);
         return params;
     }
+
+
 }

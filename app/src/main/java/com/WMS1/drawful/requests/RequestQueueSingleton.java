@@ -1,12 +1,10 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.requests;
 
 import android.content.Context;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-
-import javax.xml.transform.ErrorListener;
 
 
 public class RequestQueueSingleton {

@@ -1,9 +1,10 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.requests;
 
 import android.content.Context;
 
 import androidx.annotation.Nullable;
 
+import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;

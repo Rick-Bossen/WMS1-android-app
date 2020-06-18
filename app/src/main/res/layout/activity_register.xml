@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".RegisterActivity">
+    tools:context=".activities.RegisterActivity">
 
-    <include layout="@layout/titlebar"/>
+    <include
+        android:id="@+id/include"
+        layout="@layout/titlebar" />
 
     <EditText
         android:id="@+id/passwordField"
@@ -40,7 +42,7 @@
         android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="Username"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/emailField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

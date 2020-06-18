@@ -1,4 +1,4 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.helpers;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.WMS1.drawful.helpers.SharedPrefrencesManager;
+import com.WMS1.drawful.requests.JwtJsonObjectRequest;
+import com.WMS1.drawful.R;
+import com.WMS1.drawful.requests.RequestQueueSingleton;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void logoutButton(View view) {
+    public void deleteButton(View view) {
         JwtJsonObjectRequest jsonObjectRequest = new JwtJsonObjectRequest
-                (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/refresh", null, new Response.Listener<JSONObject>() {
+                (Request.Method.DELETE, RequestQueueSingleton.BASE_URL + "/user/delete", null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) { //TODO tokens opslaan en join scherm tonen
@@ -54,5 +56,11 @@ public class MainActivity extends AppCompatActivity {
                 }, getApplicationContext());
 
         RequestQueueSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    public void logoutButton(View view) {
+        SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
+        manager.setToken("");
+        manager.setRefresh("");
     }
 }

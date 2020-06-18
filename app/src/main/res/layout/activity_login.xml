@@ -5,13 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <include
-        android:id="@+id/include2"
         layout="@layout/titlebar"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-334dp"></include>
+        android:id="@+id/include" />
 
     <EditText
         android:id="@+id/passwordField"
