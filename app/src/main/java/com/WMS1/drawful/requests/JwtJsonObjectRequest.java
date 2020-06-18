@@ -33,7 +33,7 @@ public class JwtJsonObjectRequest extends JsonObjectRequest {
                 }
                 else if (error.networkResponse.statusCode == 401) {
                     RefreshJsonObjectRequest refreshjsonObjectRequest = new RefreshJsonObjectRequest
-                            (Request.Method.POST, RequestQueueSingleton.BASE_URL + "/user/refresh", null, new Response.Listener<JSONObject>() {
+                            (new Response.Listener<JSONObject>() {
 
                                 @Override
                                 public void onResponse(JSONObject response) {
