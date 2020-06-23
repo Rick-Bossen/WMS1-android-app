@@ -8,8 +8,8 @@
     tools:context=".activities.LoginActivity">
 
     <include
-        layout="@layout/titlebar"
-        android:id="@+id/include" />
+        android:id="@+id/include"
+        layout="@layout/titlebar" />
 
     <EditText
         android:id="@+id/passwordField"

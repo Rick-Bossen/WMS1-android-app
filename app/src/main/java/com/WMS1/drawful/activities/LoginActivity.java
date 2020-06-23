@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                     (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/login", jsonObject, new Response.Listener<JSONObject>() {
 
                         @Override
-                        public void onResponse(JSONObject response) { //TODO tokens opslaan en join scherm tonen
+                        public void onResponse(JSONObject response) { //TODO join scherm tonen
                             Toast toast = Toast.makeText(getApplicationContext(), "Response: " + response.toString(), Toast.LENGTH_SHORT);
                             toast.show();
                              SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
