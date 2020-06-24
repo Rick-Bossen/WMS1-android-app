@@ -40,4 +40,13 @@ public class SharedPrefrencesManager {
     public String getRefresh() {
         return preferences.getString("refresh", "");
     }
+
+    public void setJoinCode(String code) {
+        editor.putString("join_code", code);
+        editor.commit();
+    }
+
+    public String getJoinCode() {
+        return preferences.getString("join_code", "");
+    }
 }

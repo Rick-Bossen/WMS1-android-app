@@ -10,4 +10,8 @@ public class Validation {
     public static boolean validateUsername(String password) {
         return password.matches("(^[a-zA-Z0-9]{4,32}$)");
     }
+
+    public static boolean validateJoinCode(String code) {
+        return code.matches("(^[A-Z0-9]{4}$)");
+    }
 }
