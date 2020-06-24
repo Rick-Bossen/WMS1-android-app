@@ -1,10 +1,12 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.WMS1.drawful.R;
 
 public class MainActivity extends AppCompatActivity {
 

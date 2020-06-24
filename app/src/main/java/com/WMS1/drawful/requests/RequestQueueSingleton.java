@@ -1,4 +1,4 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.requests;
 
 import android.content.Context;
 
@@ -28,8 +28,6 @@ public class RequestQueueSingleton {
 
     public RequestQueue getRequestQueue() {
         if (requestQueue == null) {
-            // getApplicationContext() is key, it keeps you from leaking the
-            // Activity or BroadcastReceiver if someone passes one in.
             requestQueue = Volley.newRequestQueue(ctx.getApplicationContext());
         }
         return requestQueue;

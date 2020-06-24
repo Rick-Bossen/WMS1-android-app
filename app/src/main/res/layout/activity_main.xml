@@ -4,35 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     android:backgroundTintMode="add"
     android:hapticFeedbackEnabled="false"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <include
         android:id="@+id/include"
-        layout="@layout/titlebar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"></include>
+        layout="@layout/titlebar" />
 
     <Button
         android:id="@+id/buttonLogin"
         style="@style/ButtonTheme"
         android:layout_marginBottom="24dp"
         android:onClick="loginButton"
-        android:text="Login"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:text="@string/login"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonRegister"
         style="@style/ButtonTheme"
         android:layout_marginBottom="200dp"
-        android:backgroundTint="@color/colorPrimary"
         android:onClick="registerButton"
-        android:text="Register"
+        android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

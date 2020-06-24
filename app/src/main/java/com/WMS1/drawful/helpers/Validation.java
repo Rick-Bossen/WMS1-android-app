@@ -1,4 +1,4 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.helpers;
 
 import android.service.autofill.RegexValidator;
 
