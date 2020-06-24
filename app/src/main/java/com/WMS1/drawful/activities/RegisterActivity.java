@@ -1,5 +1,6 @@
 package com.WMS1.drawful.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,14 +36,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void registerButton(View view) {
         if (!Validation.validateUsername(username.getText().toString())) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Invalid username", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(getApplicationContext(), "Invalid username", Toast.LENGTH_SHORT).show();
         } else if (!Validation.validateMail(mail.getText().toString())) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_SHORT).show();
         } else if (password.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
+
         } else {
             JSONObject jsonObject = new JSONObject();
             try {
@@ -54,21 +53,12 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/create" , jsonObject, new Response.Listener<JSONObject>() {
-
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Response: " + response.toString(), Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            if (error.networkResponse.statusCode == 400){
-                                Toast toast = Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_LONG);
-                                toast.show();
-                            }
+                    (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/create" , jsonObject, response -> {
+                        Toast.makeText(getApplicationContext(), "User created successfully", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }, error -> {
+                        if (error.networkResponse.statusCode == 400){
+                            Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_LONG).show();
                         }
                     });
             queueSingleton.addToRequestQueue(jsonObjectRequest);

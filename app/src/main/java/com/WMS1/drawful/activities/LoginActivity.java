@@ -2,6 +2,7 @@ package com.WMS1.drawful.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,11 +36,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginButton(View view) {
         if (!Validation.validateMail(mail.getText().toString())) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_SHORT).show();
         } else if (password.getText().toString().isEmpty()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
         } else {
             JSONObject jsonObject = new JSONObject();
             try {
@@ -50,29 +49,22 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/login", jsonObject, new Response.Listener<JSONObject>() {
-
-                        @Override
-                        public void onResponse(JSONObject response) { //TODO join scherm tonen
-                            Toast toast = Toast.makeText(getApplicationContext(), "Response: " + response.toString(), Toast.LENGTH_SHORT);
-                            toast.show();
-                             SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
-                            try {
-                                manager.setToken(response.getString("access_token"));
-                                manager.setRefresh(response.getString("refresh_token"));
-                                System.out.println("REFRESH TOKEN: " + manager.getRefresh());
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                    (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/login", jsonObject, response -> {
+                         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
+                        try {
+                            manager.setToken(response.getString("access_token"));
+                            manager.setRefresh(response.getString("refresh_token"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    }, new Response.ErrorListener() {
+                        Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(this, JoinActivity.class);
+                        startActivity(intent);
+                        finishAffinity();
 
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            if (error.networkResponse.statusCode == 400){
-                                Toast toast = Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_LONG);
-                                toast.show();
-                            }
+                    }, error -> {
+                        if (error.networkResponse.statusCode == 400){
+                            Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_LONG).show();
                         }
                     });
             queueSingleton.addToRequestQueue(jsonObjectRequest);

@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Drawful</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="join">Join</string>
+    <string name="join_code_hint">Enter join code</string>
 </resources>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     android:backgroundTintMode="add"
     android:hapticFeedbackEnabled="false"
     tools:context=".activities.MainActivity">
@@ -18,18 +17,8 @@
         style="@style/ButtonTheme"
         android:layout_marginBottom="24dp"
         android:onClick="loginButton"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonDelete"
-        style="@style/ButtonTheme"
-        android:layout_marginBottom="24dp"
-        android:onClick="deleteButton"
-        android:text="Delete user"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -38,18 +27,8 @@
         style="@style/ButtonTheme"
         android:layout_marginBottom="200dp"
         android:onClick="registerButton"
-        android:text="Register"
+        android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="@+id/include"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonLogout"
-        style="@style/ButtonTheme"
-        android:layout_marginBottom="24dp"
-        android:onClick="logoutButton"
-        android:text="Logout"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDelete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

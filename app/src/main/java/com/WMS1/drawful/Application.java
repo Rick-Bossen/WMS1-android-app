@@ -1,5 +1,7 @@
 package com.WMS1.drawful;
 
+import com.WMS1.drawful.Services.RefreshTokenService;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -21,6 +23,9 @@ public class Application extends android.app.Application {
         super.onCreate();
 
         allowSSL();
+
+        RefreshTokenService service = new RefreshTokenService();
+        service.runService(getApplicationContext());
     }
 
     /* https://gist.github.com/polilluminato/0b89922983cd92c4f99413001a7373ad */

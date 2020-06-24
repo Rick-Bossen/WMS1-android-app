@@ -12,7 +12,7 @@ public class RequestQueueSingleton {
     private RequestQueue requestQueue;
     private static Context ctx;
 
-    public static final String BASE_URL = " https://drawpy.logick.nl";
+    public static final String BASE_URL = " http://10.0.2.2:5000";
 
     private RequestQueueSingleton(Context context) {
         ctx = context;
