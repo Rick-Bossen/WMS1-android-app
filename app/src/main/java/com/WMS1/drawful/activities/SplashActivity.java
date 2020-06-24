@@ -23,11 +23,12 @@ public class SplashActivity extends AppCompatActivity {
 
     private void routeToActivity() {
         Intent intent;
-        if (SharedPrefrencesManager.getInstance(getApplicationContext()).getRefresh().isEmpty()) {
-            intent = new Intent(this, MainActivity.class);
-        } else { //TODO Refresh token on boot
-            intent = new Intent(this, JoinActivity.class);
-        }
+//        if (SharedPrefrencesManager.getInstance(getApplicationContext()).getRefresh().isEmpty()) {
+//            intent = new Intent(this, MainActivity.class);
+//        } else { //TODO Refresh token on boot
+//            intent = new Intent(this, JoinActivity.class);
+//        }
+        intent = new Intent(this, TempActivity.class);
         startActivity(intent);
         finishAffinity();
     }

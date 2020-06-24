@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_alignParentStart="true">
+
+    <Button
+        android:id="@+id/answerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="130dp"
+        android:height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="24dp"
+        android:background="@drawable/ic_star"
+        android:text="P1"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:elevation="100dp"
+        android:layout_alignStart="@+id/answerButton"
+        android:layout_alignTop="@id/answerButton"
+
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="43dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="24dp"
+        android:background="@drawable/ic_star"
+        android:text="P2"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:elevation="100dp"
+        android:layout_alignStart="@+id/answerButton"
+        android:layout_alignTop="@id/answerButton"
+
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="43dp"
+        android:rotation="-15"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="24dp"
+        android:background="@drawable/ic_star"
+        android:text="P3"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:elevation="100dp"
+        android:layout_alignStart="@+id/answerButton"
+        android:layout_alignTop="@id/answerButton"
+
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="43dp"
+        android:rotation="15"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="24dp"
+        android:background="@drawable/ic_star"
+        android:text="P4"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:elevation="100dp"
+        android:layout_alignStart="@+id/answerButton"
+        android:layout_alignTop="@id/answerButton"
+
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="-12dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="24dp"
+        android:background="@drawable/ic_star"
+        android:text="P5"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:elevation="100dp"
+        android:layout_alignStart="@+id/answerButton"
+        android:layout_alignTop="@id/answerButton"
+
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="-12dp"
+        android:rotation="15"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="24dp"
+        android:background="@drawable/ic_star"
+        android:text="P6"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:elevation="100dp"
+        android:layout_alignStart="@+id/answerButton"
+        android:layout_alignTop="@id/answerButton"
+
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="-12dp"
+        android:rotation="-15"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="24dp"
+        android:background="@drawable/ic_star"
+        android:text="P7"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:elevation="100dp"
+        android:layout_alignStart="@+id/answerButton"
+        android:layout_alignTop="@id/answerButton"
+
+        android:layout_marginStart="-13dp"
+        android:layout_marginTop="15.5dp"
+        android:rotation="30"
+        />
+
+</RelativeLayout>
