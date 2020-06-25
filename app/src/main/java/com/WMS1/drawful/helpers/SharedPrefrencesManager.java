@@ -49,4 +49,13 @@ public class SharedPrefrencesManager {
     public String getJoinCode() {
         return preferences.getString("join_code", "");
     }
+
+    public void setGameId(String id) {
+        editor.putString("game_id", id);
+        editor.commit();
+    }
+
+    public String getGameid() {
+        return preferences.getString("game_id", "");
+    }
 }
