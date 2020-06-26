@@ -1,4 +1,4 @@
-package com.WMS1.drawful.activities;
+package com.WMS1.drawful.activities.room;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.WMS1.drawful.R;
+import com.WMS1.drawful.activities.game.GameActivity;
 import com.WMS1.drawful.adapters.UserlistAdapter;
 import com.WMS1.drawful.requests.JwtJsonObjectRequest;
 import com.WMS1.drawful.requests.RequestQueueSingleton;

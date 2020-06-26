@@ -5,26 +5,31 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".Application"
+        android:name=".activities.game.Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.GameActivity"></activity>
-        <activity android:name=".activities.LobbyActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".activities.game.DrawingActivity"></activity>
+        <activity android:name=".activities.game.VoteResultsActivity" />
+        <activity android:name=".activities.game.VotingActivity" />
+        <activity android:name=".activities.game.GuessingActivity" />
+        <activity android:name=".activities.game.WaitingForDrawingActivity" />
+        <activity android:name=".activities.game.GameActivity" />
+        <activity android:name=".activities.room.LobbyActivity" />
+        <activity android:name=".activities.general.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.JoinActivity" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.room.JoinActivity" />
+        <activity android:name=".activities.user.LoginActivity" />
+        <activity android:name=".activities.user.RegisterActivity" />
+        <activity android:name=".activities.general.MainActivity" />
     </application>
 
 </manifest>

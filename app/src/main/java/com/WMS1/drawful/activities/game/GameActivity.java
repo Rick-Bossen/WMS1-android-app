@@ -1,4 +1,4 @@
-package com.WMS1.drawful.activities;
+package com.WMS1.drawful.activities.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 

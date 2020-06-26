@@ -1,5 +1,6 @@
-package com.WMS1.drawful;
+package com.WMS1.drawful.activities.game;
 
+import com.WMS1.drawful.R;
 import com.WMS1.drawful.services.RefreshTokenService;
 
 import java.io.IOException;

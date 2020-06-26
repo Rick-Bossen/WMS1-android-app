@@ -1,4 +1,4 @@
-package com.WMS1.drawful.activities;
+package com.WMS1.drawful.activities.user;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.WMS1.drawful.activities;
+package com.WMS1.drawful.activities.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.WMS1.drawful.R;
+import com.WMS1.drawful.activities.room.JoinActivity;
 import com.WMS1.drawful.requests.RequestQueueSingleton;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.WMS1.drawful.helpers.Validation;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;

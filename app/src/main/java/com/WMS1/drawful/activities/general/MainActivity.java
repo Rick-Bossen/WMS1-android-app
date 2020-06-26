@@ -1,4 +1,4 @@
-package com.WMS1.drawful.activities;
+package com.WMS1.drawful.activities.general;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.WMS1.drawful.R;
+import com.WMS1.drawful.activities.user.LoginActivity;
+import com.WMS1.drawful.activities.user.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 
