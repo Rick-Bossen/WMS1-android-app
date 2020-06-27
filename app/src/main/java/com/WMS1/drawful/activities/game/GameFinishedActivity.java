@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.WMS1.drawful.R;
-
+// TODO make activity
 public class GameFinishedActivity extends AppCompatActivity {
 
     @Override

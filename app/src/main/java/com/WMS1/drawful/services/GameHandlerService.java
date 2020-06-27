@@ -38,7 +38,6 @@ public class GameHandlerService extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        System.out.println("GameHandler start command");
         getValues();
         queue = RequestQueueSingleton.getInstance(getApplicationContext());
         baseUrl = RequestQueueSingleton.BASE_URL + "/game/" + gameId + "/status";
@@ -57,6 +56,11 @@ public class GameHandlerService extends Service {
     private void getStatus(boolean longPolling) {
         String url;
         if (longPolling) {
+            try {
+                Thread.sleep(1000); // Thread sleep to account for desync between client and server
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             url = baseUrl + "?after=" + System.currentTimeMillis() / 1000L;
             System.out.println(url);
         } else {
@@ -91,6 +95,7 @@ public class GameHandlerService extends Service {
         String status = data.getString("status");
         Intent intent = null;
 
+        JSONArray users = data.getJSONArray("users");
         JSONArray unresponsiveUsers = data.getJSONArray("unresponsive_users");
 
         for (int i = 0; i < unresponsiveUsers.length(); i++) {
@@ -106,6 +111,12 @@ public class GameHandlerService extends Service {
                     intent = new Intent(this, DrawingActivity.class);
                 } else {
                     intent = new Intent(this, WaitingForDrawingActivity.class);
+
+                    for (int i = 0; i < users.length(); i++) {
+                        if (data.getString("user_drawing").equals(users.getJSONObject(i).getString("id"))) {
+                            intent.putExtra("USER_DRAWING", users.getJSONObject(i).getString("username"));
+                        }
+                    }
                 }
                 break;
             case "guessing":
@@ -121,11 +132,11 @@ public class GameHandlerService extends Service {
                 intent = new Intent(this, VoteResultsActivity.class);
                 intent.putExtra("GUESSES", data.getJSONObject("guesses").toString());
                 intent.putExtra("VOTES", data.getJSONObject("votes").toString());
-                intent.putExtra("USERS", data.getJSONArray("users").toString());
+                intent.putExtra("USERS", users.toString());
                 break;
             case "finished":
                 intent = new Intent(this, GameFinishedActivity.class);
-                intent.putExtra("USERS", data.getJSONArray("users").toString());
+                intent.putExtra("USERS", users.toString());
                 isActive = false;
                 break;
         }

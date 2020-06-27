@@ -10,4 +10,6 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="join">Join</string>
     <string name="join_code_hint">Enter join code</string>
+    <string name="guess_text">Type your guess here</string>
+    <string name="submit">Submit</string>
 </resources>

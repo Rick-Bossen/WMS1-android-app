@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.WMS1.drawful.R;
-
+// TODO add drawing logic
 public class DrawingActivity extends AppCompatActivity {
 
     @Override

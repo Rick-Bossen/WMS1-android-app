@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.WMS1.drawful.R;
-import com.WMS1.drawful.activities.game.GameActivity;
 import com.WMS1.drawful.adapters.UserlistAdapter;
 import com.WMS1.drawful.requests.JwtJsonObjectRequest;
 import com.WMS1.drawful.requests.RequestQueueSingleton;
@@ -99,7 +98,6 @@ public class LobbyActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            System.out.println("I am in pending");
             service.shutdown();
             startService(new Intent(this, GameHandlerService.class));
         }, null, getApplicationContext());

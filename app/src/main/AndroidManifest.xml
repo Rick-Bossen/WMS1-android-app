@@ -19,7 +19,6 @@
         <activity android:name=".activities.game.VotingActivity" />
         <activity android:name=".activities.game.GuessingActivity" />
         <activity android:name=".activities.game.WaitingForDrawingActivity" />
-        <activity android:name=".activities.game.GameActivity" />
         <activity android:name=".activities.room.LobbyActivity" />
         <activity android:name=".activities.general.SplashActivity">
             <intent-filter>
