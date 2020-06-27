@@ -14,6 +14,7 @@ import com.WMS1.drawful.activities.game.GameActivity;
 import com.WMS1.drawful.adapters.UserlistAdapter;
 import com.WMS1.drawful.requests.JwtJsonObjectRequest;
 import com.WMS1.drawful.requests.RequestQueueSingleton;
+import com.WMS1.drawful.services.GameHandlerService;
 import com.WMS1.drawful.services.RefreshRoomService;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.android.volley.DefaultRetryPolicy;
@@ -46,11 +47,7 @@ public class LobbyActivity extends AppCompatActivity {
         setRefreshService();
 
         setCode();
-        try {
-            pending();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        pending();
     }
 
     @SuppressLint("SetTextI18n")
@@ -89,24 +86,24 @@ public class LobbyActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private void pending() throws JSONException {
+    private void pending() {
         RequestQueueSingleton queue = RequestQueueSingleton.getInstance(getApplicationContext());
+        SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
 
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("join_code", SharedPrefrencesManager.getInstance(getApplicationContext()).getJoinCode());
+        String url = RequestQueueSingleton.BASE_URL + "/game/pending" + "?join_code=" + manager.getJoinCode();
 
-        JwtJsonObjectRequest request = new JwtJsonObjectRequest(Request.Method.GET,
-                RequestQueueSingleton.BASE_URL + "/game/pending", jsonObject, response -> {
+        JwtJsonObjectRequest request = new JwtJsonObjectRequest(Request.Method.GET, url,
+                null, response -> {
             try {
-                SharedPrefrencesManager.getInstance(getApplicationContext()).setGameId((String) response.get("match_id"));
+                manager.setGameId(response.getString("match_id"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Intent intent = new Intent(this, GameActivity.class);
-            startActivity(intent);
-            finishAffinity();
+            System.out.println("I am in pending");
+            service.shutdown();
+            startService(new Intent(this, GameHandlerService.class));
         }, null, getApplicationContext());
-        request.setRetryPolicy(new DefaultRetryPolicy(Integer.MAX_VALUE,Integer.MAX_VALUE,1));
+        request.setRetryPolicy(new DefaultRetryPolicy(15 * 60 * 1000,Integer.MAX_VALUE,1));
         queue.addToRequestQueue(request);
     }
 

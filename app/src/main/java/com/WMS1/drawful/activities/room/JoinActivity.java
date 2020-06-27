@@ -34,6 +34,7 @@ public class JoinActivity extends AppCompatActivity {
         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
         manager.setToken("");
         manager.setRefresh("");
+        manager.setUserId("");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

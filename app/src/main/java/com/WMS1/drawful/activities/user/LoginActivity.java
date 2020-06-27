@@ -14,7 +14,11 @@ import com.WMS1.drawful.requests.RequestQueueSingleton;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.WMS1.drawful.helpers.Validation;
 import com.android.volley.Request;
+import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,10 +53,8 @@ public class LoginActivity extends AppCompatActivity {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.POST,RequestQueueSingleton.BASE_URL + "/user/login", jsonObject, response -> {
-                         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
                         try {
-                            manager.setToken(response.getString("access_token"));
-                            manager.setRefresh(response.getString("refresh_token"));
+                            loginUser(response);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -68,5 +70,16 @@ public class LoginActivity extends AppCompatActivity {
                     });
             queueSingleton.addToRequestQueue(jsonObjectRequest);
         }
+    }
+
+    private void loginUser(JSONObject response) throws JSONException {
+        SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
+            manager.setToken(response.getString("access_token"));
+            manager.setRefresh(response.getString("refresh_token"));
+
+
+        DecodedJWT jwt = JWT.decode(response.getString("access_token"));
+        String userId = (String) jwt.getClaim("identity").asMap().get("_id");
+        SharedPrefrencesManager.getInstance(getApplicationContext()).setUserId(userId);
     }
 }

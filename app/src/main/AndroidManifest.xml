@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.game.DrawingActivity"></activity>
+        <service android:name=".services.GameHandlerService" />
+        <activity android:name=".activities.game.GameFinishedActivity" />
+        <activity android:name=".activities.game.DrawingActivity" />
         <activity android:name=".activities.game.VoteResultsActivity" />
         <activity android:name=".activities.game.VotingActivity" />
         <activity android:name=".activities.game.GuessingActivity" />
