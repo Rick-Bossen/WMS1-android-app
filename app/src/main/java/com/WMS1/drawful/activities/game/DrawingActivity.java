@@ -65,7 +65,7 @@ public class DrawingActivity extends AppCompatActivity {
 
 
     public void submitDrawing(View view) {
-        String image = canvas.getDrawing();
+        JSONObject image = canvas.getDrawing();
 
         String gameId = SharedPrefrencesManager.getInstance(getApplicationContext()).getGameid();
         String url = RequestQueueSingleton.BASE_URL + "/game/" + gameId + "/drawing/add";

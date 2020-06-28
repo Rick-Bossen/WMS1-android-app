@@ -139,8 +139,8 @@ public class CanvasView extends View {
         } catch (JSONException ignored) {}
     }
 
-    public String getDrawing() {
-        return drawing.toString();
+    public JSONObject getDrawing() {
+        return drawing;
     }
 
     public void resetDrawing() {
