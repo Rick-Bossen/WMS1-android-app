@@ -12,6 +12,8 @@ import com.WMS1.drawful.activities.game.ShowingScoresActivity;
 import com.WMS1.drawful.activities.game.VoteResultsActivity;
 import com.WMS1.drawful.activities.game.VotingActivity;
 import com.WMS1.drawful.activities.game.WaitingForDrawingActivity;
+import com.WMS1.drawful.activities.game.WaitingForGuessingActivity;
+import com.WMS1.drawful.activities.game.WaitingForVotingActivity;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.WMS1.drawful.requests.JwtJsonObjectRequest;
 import com.WMS1.drawful.requests.RequestQueueSingleton;
@@ -122,13 +124,22 @@ public class GameHandlerService extends Service {
                 }
                 break;
             case "guessing":
-                intent = new Intent(this, GuessingActivity.class);
-                intent.putExtra("IMAGE", data.getString("drawing"));
+                if (data.get("user_drawing").equals(userId)) {
+                    intent = new Intent(this, WaitingForGuessingActivity.class);
+                } else {
+                    intent = new Intent(this, GuessingActivity.class);
+                    intent.putExtra("IMAGE", data.getString("drawing"));
+                }
                 break;
             case "voting":
-                intent = new Intent(this, VotingActivity.class);
-                intent.putExtra("IMAGE", data.getString("drawing"));
-                intent.putExtra("GUESSES", data.getJSONObject("guesses").toString());
+                if (data.get("user_drawing").equals(userId)) {
+                    intent = new Intent(this, WaitingForVotingActivity.class);
+                } else {
+                    intent = new Intent(this, VotingActivity.class);
+                    intent.putExtra("IMAGE", data.getString("drawing"));
+                    intent.putExtra("GUESSES", data.getJSONObject("guesses").toString());
+                }
+
                 break;
             case "showing_scores":
                 intent = new Intent(this, VoteResultsActivity.class);

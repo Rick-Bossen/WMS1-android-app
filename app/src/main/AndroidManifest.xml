@@ -12,28 +12,60 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.game.ShowingScoresActivity"></activity>
+        <activity
+            android:name=".activities.game.WaitingForVotingActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".activities.game.WaitingForGuessingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.game.ShowingScoresActivity"
+            android:screenOrientation="portrait"/>
 
         <service android:name=".services.GameHandlerService" />
-
-        <activity android:name=".activities.game.GameFinishedActivity" />
-        <activity android:name=".activities.game.DrawingActivity" />
-        <activity android:name=".activities.game.VoteResultsActivity" />
-        <activity android:name=".activities.game.VotingActivity" />
-        <activity android:name=".activities.game.GuessingActivity" />
-        <activity android:name=".activities.game.WaitingForDrawingActivity" />
-        <activity android:name=".activities.room.LobbyActivity" />
-        <activity android:name=".activities.general.SplashActivity">
+        <activity
+            android:name=".activities.game.GameFinishedActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.game.DrawingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.game.VoteResultsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.game.VotingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.game.GuessingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.game.WaitingForDrawingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.room.LobbyActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.general.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.room.JoinActivity" />
-        <activity android:name=".activities.user.LoginActivity" />
-        <activity android:name=".activities.user.RegisterActivity" />
-        <activity android:name=".activities.general.MainActivity" />
+        <activity
+            android:name=".activities.room.JoinActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.user.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.user.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.general.MainActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
