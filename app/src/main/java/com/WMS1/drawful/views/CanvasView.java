@@ -138,4 +138,15 @@ public class CanvasView extends View {
             }
         } catch (JSONException ignored) {}
     }
+
+    public String getDrawing() {
+        return drawing.toString();
+    }
+
+    public void resetDrawing() {
+        drawing = new JSONObject();
+        try {
+            drawing.put("lines", new JSONArray());
+        } catch (JSONException ignored) {}
+    }
 }

@@ -29,8 +29,8 @@ public class UserlistAdapter extends RecyclerView.Adapter<UserlistAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        String user = mData.get(position);
+        holder.myTextView.setText(user);
     }
 
     @Override

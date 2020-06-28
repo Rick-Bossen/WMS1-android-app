@@ -19,7 +19,6 @@ import com.android.volley.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-// TODO draw image
 public class GuessingActivity extends AppCompatActivity {
 
     CanvasView canvas;

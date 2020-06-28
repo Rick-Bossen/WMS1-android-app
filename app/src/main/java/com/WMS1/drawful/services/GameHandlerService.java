@@ -2,11 +2,13 @@ package com.WMS1.drawful.services;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.IBinder;
 
 import com.WMS1.drawful.activities.game.DrawingActivity;
 import com.WMS1.drawful.activities.game.GameFinishedActivity;
 import com.WMS1.drawful.activities.game.GuessingActivity;
+import com.WMS1.drawful.activities.game.ShowingScoresActivity;
 import com.WMS1.drawful.activities.game.VoteResultsActivity;
 import com.WMS1.drawful.activities.game.VotingActivity;
 import com.WMS1.drawful.activities.game.WaitingForDrawingActivity;
@@ -133,6 +135,13 @@ public class GameHandlerService extends Service {
                 intent.putExtra("GUESSES", data.getJSONObject("guesses").toString());
                 intent.putExtra("VOTES", data.getJSONObject("votes").toString());
                 intent.putExtra("USERS", users.toString());
+
+                new Handler().postDelayed(() -> { // switch to scores screen after 6 seconds
+                    Intent i = new Intent(this, ShowingScoresActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    i.putExtra("USERS", users.toString());
+                    startActivity(i);
+                }, 6000);
                 break;
             case "finished":
                 intent = new Intent(this, GameFinishedActivity.class);
