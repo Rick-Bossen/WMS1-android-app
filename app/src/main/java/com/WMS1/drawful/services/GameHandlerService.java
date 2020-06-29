@@ -103,7 +103,10 @@ public class GameHandlerService extends Service {
 
         for (int i = 0; i < unresponsiveUsers.length(); i++) {
             if (userId.equals(unresponsiveUsers.get(i))) {
-                //TODO add pop up if user is unresponsive
+                JwtJsonObjectRequest request = new JwtJsonObjectRequest(Request.Method.POST,
+                        RequestQueueSingleton.BASE_URL + "/game/" + gameId + "/present",
+                        null, response -> {}, null, getApplicationContext());
+                RequestQueueSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
             }
         }
 

@@ -2,10 +2,12 @@ package com.WMS1.drawful.activities.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.WMS1.drawful.R;
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 public class DrawingActivity extends AppCompatActivity {
 
     CanvasView canvas;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,8 @@ public class DrawingActivity extends AppCompatActivity {
 
         initSeekBar();
 
+        title = this.findViewById(R.id.titleView);
+        setTheme();
         canvas = this.findViewById(R.id.canvas);
         canvas.enableDrawing();
     }
@@ -56,6 +61,20 @@ public class DrawingActivity extends AppCompatActivity {
                 canvas.setStrokeWidth(value);
             }
         });
+    }
+
+    private void setTheme() {
+        String gameId = SharedPrefrencesManager.getInstance(getApplicationContext()).getGameid();
+        String url = RequestQueueSingleton.BASE_URL + "/game/" + gameId + "/theme";
+        @SuppressLint("SetTextI18n") JwtJsonObjectRequest request  = new JwtJsonObjectRequest(Request.Method.GET, url, null, response -> {
+            try {
+                title.setText("Draw: " + response.getString("theme"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }, error -> Toast.makeText(getApplicationContext(), "Something went wrong while getting the theme", Toast.LENGTH_SHORT).show(),
+                getApplicationContext());
+        RequestQueueSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
     }
 
     private void setColor(ColorEnvelope envelope) {
