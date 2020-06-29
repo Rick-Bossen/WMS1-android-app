@@ -1,4 +1,4 @@
-package com.WMS1.drawful.activities;
+package com.WMS1.drawful.activities.room;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.WMS1.drawful.R;
+import com.WMS1.drawful.activities.general.MainActivity;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.WMS1.drawful.helpers.Validation;
 import com.WMS1.drawful.requests.JwtJsonObjectRequest;
@@ -33,6 +34,7 @@ public class JoinActivity extends AppCompatActivity {
         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
         manager.setToken("");
         manager.setRefresh("");
+        manager.setUserId("");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

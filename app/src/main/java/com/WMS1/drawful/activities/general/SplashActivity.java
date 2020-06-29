@@ -1,17 +1,12 @@
-package com.WMS1.drawful.activities;
+package com.WMS1.drawful.activities.general;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.WMS1.drawful.R;
+import com.WMS1.drawful.activities.room.JoinActivity;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
-import com.WMS1.drawful.requests.RefreshJsonObjectRequest;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 public class SplashActivity extends AppCompatActivity {
 

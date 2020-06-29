@@ -1,4 +1,4 @@
-package com.WMS1.drawful.Services;
+package com.WMS1.drawful.services;
 
 import android.content.Context;
 

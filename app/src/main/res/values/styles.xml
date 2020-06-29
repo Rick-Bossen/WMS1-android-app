@@ -15,6 +15,7 @@
         <item name="android:windowBackground">@color/colorBackground</item>
 
         <item name="android:textViewStyle">@style/ManropeTextViewStyle</item>
+        <item name="android:textSize">16sp</item>
 
     </style>
 
