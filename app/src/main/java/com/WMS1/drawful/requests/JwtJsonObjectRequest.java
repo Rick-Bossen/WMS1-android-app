@@ -36,7 +36,6 @@ public class JwtJsonObjectRequest extends JsonObjectRequest {
 
     private static void handleError(VolleyError error, Context context, Response.ErrorListener errorListener){
         if (error.networkResponse.statusCode == 422) {
-            System.out.println(SharedPrefrencesManager.getInstance(context).getToken());
             Toast toast = Toast.makeText(context, "Please log in again", Toast.LENGTH_SHORT);
             toast.show();
         }

@@ -66,7 +66,6 @@ public class GameHandlerService extends Service {
                 e.printStackTrace();
             }
             url = baseUrl + "?after=" + System.currentTimeMillis() / 1000L;
-            System.out.println(url);
         } else {
             url = baseUrl;
         }
