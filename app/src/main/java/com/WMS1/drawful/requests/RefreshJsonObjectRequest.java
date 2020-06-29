@@ -41,9 +41,6 @@ public class RefreshJsonObjectRequest extends JsonObjectRequest {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        Toast toast = Toast.makeText(context, " Refreshed: " + response.toString(), Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     private static void handleError(Response.ErrorListener errorListener, VolleyError error){
