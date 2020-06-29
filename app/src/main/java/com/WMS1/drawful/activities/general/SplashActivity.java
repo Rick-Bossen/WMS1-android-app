@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
         Intent intent;
         if (SharedPrefrencesManager.getInstance(getApplicationContext()).getRefresh().isEmpty()) {
             intent = new Intent(this, MainActivity.class);
-        } else { //TODO Refresh token on boot
+        } else {
             intent = new Intent(this, JoinActivity.class);
         }
         startActivity(intent);

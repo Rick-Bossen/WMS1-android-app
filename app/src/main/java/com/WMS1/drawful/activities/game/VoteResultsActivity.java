@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-// TODO improve layout
 public class VoteResultsActivity extends AppCompatActivity {
 
     AnswerlistAdapter adapter;

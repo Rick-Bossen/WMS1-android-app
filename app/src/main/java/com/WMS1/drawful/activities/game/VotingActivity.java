@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-// TODO improve layout
+
 public class VotingActivity extends AppCompatActivity {
 
     CanvasView canvas;
