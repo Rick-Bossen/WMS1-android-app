@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.WMS1.drawful.R;
 import com.WMS1.drawful.adapters.AnswerlistAdapter;
 import com.WMS1.drawful.adapters.VotelistAdapter;
+import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.WMS1.drawful.views.CanvasView;
 
 import org.json.JSONException;
@@ -45,12 +46,15 @@ public class VotingActivity extends AppCompatActivity {
 
     private void initList() {
         HashMap<String, String> map = new HashMap<>();
+        String userId = SharedPrefrencesManager.getInstance(getApplicationContext()).getUserId();
 
         guesses.keys().forEachRemaining(key -> {
-            try {
-                map.put(key, (String) guesses.get(key));
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (!userId.equals(key)) {
+                try {
+                    map.put(key, (String) guesses.get(key));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

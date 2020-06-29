@@ -29,6 +29,7 @@ public class VotelistAdapter extends RecyclerView.Adapter<VotelistAdapter.VotesV
     private LinkedList<String> texts;
     private LinkedList<String> userIds;
     private Context context;
+    private LinkedList<Button> buttons;
 
     public static class VotesViewHolder extends RecyclerView.ViewHolder {
 
@@ -43,6 +44,7 @@ public class VotelistAdapter extends RecyclerView.Adapter<VotelistAdapter.VotesV
     public VotelistAdapter(Map<String, String> texts, Context context) {
         this.texts = new LinkedList<>();
         this.userIds = new LinkedList<>();
+        this.buttons = new LinkedList<>();
         texts = new LinkedHashMap<>(texts);
 
         this.context = context;
@@ -79,11 +81,17 @@ public class VotelistAdapter extends RecyclerView.Adapter<VotelistAdapter.VotesV
             e.printStackTrace();
         }
         JwtJsonObjectRequest request = new JwtJsonObjectRequest(Request.Method.POST, url, jsonObject,
-                response -> {}, error -> Toast.makeText(context, "Something went wrong, please try again", Toast.LENGTH_SHORT), context);
+                response -> {
+                    Toast.makeText(context, "Vote received", Toast.LENGTH_SHORT).show();
+                    for (int i = 0; i < buttons.size(); i++) {
+                        buttons.get(i).setEnabled(false);
+                    }
+                }, error -> Toast.makeText(context, "Something went wrong, please try again", Toast.LENGTH_SHORT), context);
 
 
         voteButton.setText(text);
         voteButton.setOnClickListener(v -> RequestQueueSingleton.getInstance(context).addToRequestQueue(request));
+        buttons.add(voteButton);
     }
 
     @Override

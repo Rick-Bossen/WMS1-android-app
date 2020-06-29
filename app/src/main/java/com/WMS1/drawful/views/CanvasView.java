@@ -148,5 +148,6 @@ public class CanvasView extends View {
         try {
             drawing.put("lines", new JSONArray());
         } catch (JSONException ignored) {}
+        invalidate();
     }
 }
