@@ -1,5 +1,8 @@
 package com.WMS1.drawful.helpers;
 
+/**
+ * Static class containing all the validation functions.
+ */
 public class Validation {
 
     /**

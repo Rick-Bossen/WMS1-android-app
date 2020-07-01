@@ -16,6 +16,9 @@ import java.util.concurrent.ScheduledFuture;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
+/**
+ * Service to refresh the current room every 5 seconds.
+ */
 public class RefreshRoomService {
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 

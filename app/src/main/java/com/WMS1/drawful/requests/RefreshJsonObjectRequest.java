@@ -16,6 +16,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class representing a JsonObjectRequest with an added JWT refresh header.
+ */
 public class RefreshJsonObjectRequest extends JsonObjectRequest {
     Context context;
 

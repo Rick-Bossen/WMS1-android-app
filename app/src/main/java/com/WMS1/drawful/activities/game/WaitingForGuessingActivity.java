@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import com.WMS1.drawful.R;
 
+/**
+ * Class representing the activity that is shown when the user is waiting for the other players to guess.
+ */
 public class WaitingForGuessingActivity extends AppCompatActivity {
 
     @Override

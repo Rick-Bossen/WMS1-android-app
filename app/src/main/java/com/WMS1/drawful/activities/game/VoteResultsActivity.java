@@ -16,6 +16,10 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Class representing the activity that is shown when the vote results are displayed.
+ * Contains a recyclerview with all the vote results.
+ */
 public class VoteResultsActivity extends AppCompatActivity {
 
     AnswerlistAdapter adapter;

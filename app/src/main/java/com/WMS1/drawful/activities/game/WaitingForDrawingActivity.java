@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import com.WMS1.drawful.R;
 
+/**
+ * Class representing the activity that is shown when the user is waiting for the other player to draw.
+ */
 public class WaitingForDrawingActivity extends AppCompatActivity {
 
     TextView waitingText;

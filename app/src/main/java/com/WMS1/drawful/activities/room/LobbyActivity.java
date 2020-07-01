@@ -26,6 +26,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ScheduledExecutorService;
 
+/**
+ * Class representing the activity that is shown when the user is waiting for the game to start.
+ * Contains a recyclerview where all other users in the room can be seen.
+ */
 public class LobbyActivity extends AppCompatActivity {
 
     TextView code;

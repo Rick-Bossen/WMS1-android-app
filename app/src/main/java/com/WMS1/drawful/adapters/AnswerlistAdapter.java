@@ -21,6 +21,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Adapter for the list of answers.
+ */
 public class AnswerlistAdapter extends RecyclerView.Adapter<AnswerlistAdapter.AnswersViewHolder> {
 
     private LinkedList<String> answers;

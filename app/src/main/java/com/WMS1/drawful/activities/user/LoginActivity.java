@@ -21,6 +21,9 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class representing the activity that is shown when the user has to log in.
+ */
 public class LoginActivity extends AppCompatActivity {
 
     EditText mail, password;

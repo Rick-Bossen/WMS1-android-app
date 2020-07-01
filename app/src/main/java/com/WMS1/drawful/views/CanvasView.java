@@ -13,6 +13,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class representing the canvas where images are displayed and the user can draw an image.
+ */
 public class CanvasView extends View {
 
     private Paint paint;

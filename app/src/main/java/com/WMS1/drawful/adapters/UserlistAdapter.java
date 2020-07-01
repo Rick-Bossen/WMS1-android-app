@@ -12,6 +12,9 @@ import com.WMS1.drawful.R;
 
 import java.util.List;
 
+/**
+ * Adapter for the list of users.
+ */
 public class UserlistAdapter extends RecyclerView.Adapter<UserlistAdapter.ViewHolder> {
     private List<String> mData;
     private LayoutInflater mInflater;

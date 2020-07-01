@@ -15,6 +15,10 @@ import androidx.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class representing a JsonObjectRequest with an added JWT header.
+ * Calls for a new token token if the JWT header is invalid.
+ */
 public class JwtJsonObjectRequest extends JsonObjectRequest {
 
     private Context context;

@@ -18,6 +18,9 @@ import com.android.volley.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class representing the activity that is shown when the user has to make a guess.
+ */
 public class GuessingActivity extends AppCompatActivity {
 
     CanvasView canvas;

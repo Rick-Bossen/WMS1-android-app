@@ -9,6 +9,9 @@ import android.view.View;
 import com.WMS1.drawful.R;
 import com.WMS1.drawful.activities.room.JoinActivity;
 
+/**
+ * Class representing the activity that is shown when a game is finished.
+ */
 public class GameFinishedActivity extends AppCompatActivity {
 
     @Override

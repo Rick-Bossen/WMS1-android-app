@@ -8,6 +8,10 @@ import android.os.Bundle;
 import com.WMS1.drawful.activities.room.JoinActivity;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 
+/**
+ * Class representing the splash activity, which is shown when the app is started.
+ * Routes the user to the right activity depending on the logged in state.
+ */
 public class SplashActivity extends AppCompatActivity {
 
     @Override

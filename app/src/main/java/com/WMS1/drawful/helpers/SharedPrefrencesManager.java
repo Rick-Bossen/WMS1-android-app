@@ -4,6 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+/**
+ * Singleton class to access the sharedprefrences.
+ */
 public class SharedPrefrencesManager {
 
     private static SharedPrefrencesManager instance;

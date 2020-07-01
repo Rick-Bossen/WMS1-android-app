@@ -17,6 +17,9 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
+/**
+ * Class representing the application.
+ */
 public class Application extends android.app.Application {
 
     @Override

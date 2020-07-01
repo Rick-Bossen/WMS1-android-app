@@ -24,6 +24,9 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ * Adapter for the list of votes.
+ */
 public class VotelistAdapter extends RecyclerView.Adapter<VotelistAdapter.VotesViewHolder> {
 
     private LinkedList<String> texts;

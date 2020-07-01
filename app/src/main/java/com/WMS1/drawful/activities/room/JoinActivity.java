@@ -19,6 +19,10 @@ import com.android.volley.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class representing the activity that is shown when the user is expected to enter a join code.
+ * Contains a field to enter the join code and a join button.
+ */
 public class JoinActivity extends AppCompatActivity {
 
     EditText code;

@@ -23,6 +23,10 @@ import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class representing the drawing activity.
+ * Contains a title and the canvas and it's controls.
+ */
 public class DrawingActivity extends AppCompatActivity {
 
     CanvasView canvas;

@@ -10,6 +10,10 @@ import com.WMS1.drawful.R;
 import com.WMS1.drawful.activities.user.LoginActivity;
 import com.WMS1.drawful.activities.user.RegisterActivity;
 
+/**
+ * Class representing the activity that is shown when the user starts the app without being logged in.
+ * Contains buttons to navigate to the login and register activities.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

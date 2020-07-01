@@ -15,6 +15,10 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class representing the activity that is shown when the scores are being displayed.
+ * Contains a recyclerview with all the current scores.
+ */
 public class ShowingScoresActivity extends AppCompatActivity {
 
     UserlistAdapter adapter;

@@ -12,6 +12,9 @@ import java.util.concurrent.ScheduledFuture;
 
 import static java.util.concurrent.TimeUnit.MINUTES;
 
+/**
+ * Service to refresh the JWT token every 10 minutes.
+ */
 public class RefreshTokenService {
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 

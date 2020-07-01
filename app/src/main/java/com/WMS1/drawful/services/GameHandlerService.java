@@ -25,6 +25,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class containing the game logic to determine the activity to show.
+ * Uses long polling and the game status to switch to the right activity as soon as the data is updated.
+ */
 public class GameHandlerService extends Service {
 
     private static String baseUrl;

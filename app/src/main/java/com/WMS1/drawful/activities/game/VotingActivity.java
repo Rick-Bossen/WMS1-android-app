@@ -16,7 +16,10 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-
+/**
+ * Class representing the activity that is shown when the user has to vote for an answer.
+ * Contains a recyclerview with all the answers.
+ */
 public class VotingActivity extends AppCompatActivity {
 
     CanvasView canvas;
