@@ -18,11 +18,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * Creates and starts a new LoginActivity.
+     *
+     * @param view the view to call the function
+     */
     public void loginButton(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Creates and starts a new RegisterActivity.
+     *
+     * @param view the view to call the function
+     */
     public void registerButton(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);

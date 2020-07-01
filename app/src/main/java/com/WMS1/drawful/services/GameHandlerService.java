@@ -53,10 +53,13 @@ public class GameHandlerService extends Service {
         return START_STICKY;
     }
     @Override
-    public void onDestroy() {
+    public void onDestroy() { }
 
-    }
-
+    /**
+     * Returns the current status of the game.
+     *
+     * @param longPolling boolean if the request is a long poll request
+     */
     private void getStatus(boolean longPolling) {
         String url;
         if (longPolling) {
@@ -75,6 +78,9 @@ public class GameHandlerService extends Service {
         queue.addToRequestQueue(request);
     }
 
+    /**
+     * Initiates the response listener to use.
+     */
     private void initListener() {
         listener = response -> {
             try {
@@ -88,12 +94,21 @@ public class GameHandlerService extends Service {
         };
     }
 
+    /**
+     * Sets the userId and gameId within this class using the sharedprefrencesmanager.
+     */
     private void getValues() {
         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
         userId = manager.getUserId();
         gameId = manager.getGameid();
     }
 
+    /**
+     * Switches to the activity that matches the game status and passes the necessary data.
+     *
+     * @param data the json data to use
+     * @throws JSONException if the data can't be parsed
+     */
     private void updateGame(JSONObject data) throws JSONException {
         String status = data.getString("status");
         Intent intent = null;

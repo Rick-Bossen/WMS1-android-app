@@ -14,10 +14,8 @@ import com.WMS1.drawful.requests.RequestQueueSingleton;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.WMS1.drawful.helpers.Validation;
 import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import org.json.JSONException;
@@ -37,6 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.passwordField);
     }
 
+    /**
+     * Tries to log in the user using the entered credentials.
+     * Displays an error message when credentials are incorrect or the user is not found.
+     * Starts a new JoinActivity if the user has successfully logged in.
+     *
+     * @param view the view to call the function
+     */
     public void loginButton(View view) {
         if (!Validation.validateMail(mail.getText().toString())) {
             Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_SHORT).show();
@@ -72,6 +77,12 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Adds the jwt token, refresh token and user id from the response to the sharedprefrences.
+     *
+     * @param response response containing all the data
+     * @throws JSONException if response can't be parsed
+     */
     private void loginUser(JSONObject response) throws JSONException {
         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
             manager.setToken(response.getString("access_token"));

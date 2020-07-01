@@ -16,6 +16,9 @@ public class SplashActivity extends AppCompatActivity {
         routeToActivity();
     }
 
+    /**
+     * Starts the MainActivity if no JWT refresh token is found, otherwise starts the JoinActivity.
+     */
     private void routeToActivity() {
         Intent intent;
         if (SharedPrefrencesManager.getInstance(getApplicationContext()).getRefresh().isEmpty()) {

@@ -42,7 +42,9 @@ public class DrawingActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Function to initiate the seekbar
+     */
     private void initSeekBar() {
         SeekBar bar = this.findViewById(R.id.strokeSize);
         bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -63,6 +65,9 @@ public class DrawingActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Function to set the theme to draw
+     */
     private void setTheme() {
         String gameId = SharedPrefrencesManager.getInstance(getApplicationContext()).getGameid();
         String url = RequestQueueSingleton.BASE_URL + "/game/" + gameId + "/theme";
@@ -77,12 +82,22 @@ public class DrawingActivity extends AppCompatActivity {
         RequestQueueSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
     }
 
+    /**
+     * Sets the color to use when drawing
+     *
+     * @param envelope envelope containing the color to use
+     */
     private void setColor(ColorEnvelope envelope) {
         String color = "#" + envelope.getHexCode().substring(2); // Remove alpha value and add #
         canvas.setStrokeColor(color);
     }
 
 
+    /**
+     * Submits the current drawing to the server
+     *
+     * @param view the view to call the function
+     */
     public void submitDrawing(View view) {
         JSONObject image = canvas.getDrawing();
 
@@ -106,6 +121,11 @@ public class DrawingActivity extends AppCompatActivity {
         RequestQueueSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
     }
 
+    /**
+     * Shows the color picker
+     *
+     * @param view the view to call the function
+     */
     public void showColorPicker(View view) {
         new ColorPickerDialog.Builder(this, AlertDialog.BUTTON_POSITIVE)
             .setTitle("Pick a color")
@@ -119,6 +139,11 @@ public class DrawingActivity extends AppCompatActivity {
             .show();
     }
 
+    /**
+     * Resets the drawing to an empty canvas
+     *
+     * @param view the view to call the function
+     */
     public void resetDrawing(View view) {
         canvas.resetDrawing();
     }

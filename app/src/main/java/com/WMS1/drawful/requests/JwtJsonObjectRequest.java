@@ -4,13 +4,10 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.annotation.Nullable;
@@ -34,6 +31,14 @@ public class JwtJsonObjectRequest extends JsonObjectRequest {
         return params;
     }
 
+    /**
+     * Handles an error by checking it's code.
+     * Shows an error message on a 422 error, tries to refresh on a 401 error.
+     *
+     * @param error error to handle
+     * @param context application context
+     * @param errorListener errorlistener to use if error doesn't match codes
+     */
     private static void handleError(VolleyError error, Context context, Response.ErrorListener errorListener){
         if (error.networkResponse.statusCode == 422) {
             Toast toast = Toast.makeText(context, "Please log in again", Toast.LENGTH_SHORT);

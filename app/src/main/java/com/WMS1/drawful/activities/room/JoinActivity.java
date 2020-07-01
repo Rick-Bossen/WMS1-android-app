@@ -30,6 +30,11 @@ public class JoinActivity extends AppCompatActivity {
         code = findViewById(R.id.codeField);
     }
 
+    /**
+     * Logs out the user by deleting the JWT tokens and the UserId, then returns to the MainActivity.
+     *
+     * @param view the view to call the function
+     */
     public void logoutButton(View view) {
         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());
         manager.setToken("");
@@ -40,6 +45,13 @@ public class JoinActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Tries to join a room using the entered room code.
+     * Displays an error message when the room is not found or if the user can't enter.
+     * Starts a new LobbyActivity if the user has successfully joined the room.
+     *
+     * @param view the view to call the function
+     */
     public void joinButton(View view) {
         if (!Validation.validateJoinCode(code.getText().toString().toUpperCase())) {
             Toast.makeText(getApplicationContext(), "Invalid code", Toast.LENGTH_LONG).show();

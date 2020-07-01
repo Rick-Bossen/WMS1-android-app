@@ -31,6 +31,9 @@ public class VotelistAdapter extends RecyclerView.Adapter<VotelistAdapter.VotesV
     private Context context;
     private LinkedList<Button> buttons;
 
+    /**
+     * Inner class containing an itemView
+     */
     public static class VotesViewHolder extends RecyclerView.ViewHolder {
 
         public View view;

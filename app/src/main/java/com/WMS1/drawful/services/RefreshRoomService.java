@@ -19,6 +19,13 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class RefreshRoomService {
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
+    /**
+     * Starts a thread that runs a service to refresh the lobby room every 5 seconds.
+     *
+     * @param context application context
+     * @param listener response listener to use
+     * @return the ScheduledExecutorService
+     */
     public ScheduledExecutorService runService(Context context, Response.Listener<JSONObject> listener) {
         final Runnable runnable = () -> {
             if (!SharedPrefrencesManager.getInstance(context).getJoinCode().isEmpty()) {

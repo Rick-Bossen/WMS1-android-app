@@ -29,6 +29,9 @@ public class CanvasView extends View {
         init();
     }
 
+    /**
+     * Initializes the canvasView
+     */
     private void init(){
         paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
@@ -115,22 +118,43 @@ public class CanvasView extends View {
         return true;
     }
 
+    /**
+     * Sets the stroke color.
+     *
+     * @param color the color to use
+     */
     public void setStrokeColor(String color){
         strokeColor = color;
     }
 
+    /**
+     * Sets the stroke width.
+     *
+     * @param width the width to use
+     */
     public void setStrokeWidth(int width){
         strokeWidth = width;
     }
 
+    /**
+     * Enables drawing on the canvas.
+     */
     public void enableDrawing(){
         canDraw = true;
     }
 
+    /**
+     * Disables drawing on the canvas.
+     */
     public void disableDrawing(){
         canDraw = false;
     }
 
+    /**
+     * Sets an image to display on the canvas.
+     *
+     * @param image the image to display
+     */
     public void setDrawing(String image) {
         try {
             if (image != null){
@@ -139,10 +163,18 @@ public class CanvasView extends View {
         } catch (JSONException ignored) {}
     }
 
+    /**
+     * Returns the drawing as a JSONObject.
+     *
+     * @return the drawing as a JSONObject.
+     */
     public JSONObject getDrawing() {
         return drawing;
     }
 
+    /**
+     * Resets the canvas to a blank state.
+     */
     public void resetDrawing() {
         drawing = new JSONObject();
         try {

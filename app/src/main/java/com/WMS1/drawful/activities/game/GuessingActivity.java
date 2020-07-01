@@ -14,7 +14,6 @@ import com.WMS1.drawful.requests.JwtJsonObjectRequest;
 import com.WMS1.drawful.requests.RequestQueueSingleton;
 import com.WMS1.drawful.views.CanvasView;
 import com.android.volley.Request;
-import com.android.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +36,12 @@ public class GuessingActivity extends AppCompatActivity {
         canvas.setDrawing(getIntent().getStringExtra("IMAGE"));
     }
 
+    /**
+     * Submits the guess entered in the TextView to the server.
+     * Doesn't submit if the TextView is empty.
+     *
+     * @param view the view to call the function
+     */
     public void submitGuess(View view) {
         if (!guess.getText().toString().isEmpty()) {
             String id = SharedPrefrencesManager.getInstance(getApplicationContext()).getGameid();

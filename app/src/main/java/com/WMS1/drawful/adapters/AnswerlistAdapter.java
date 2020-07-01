@@ -1,8 +1,6 @@
 package com.WMS1.drawful.adapters;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +28,9 @@ public class AnswerlistAdapter extends RecyclerView.Adapter<AnswerlistAdapter.An
     private String correct;
     private Context context;
 
+    /**
+     * Inner class containing an itemView
+     */
     public static class AnswersViewHolder extends RecyclerView.ViewHolder{
 
         public View view;
@@ -87,6 +88,12 @@ public class AnswerlistAdapter extends RecyclerView.Adapter<AnswerlistAdapter.An
         return answers.size();
     }
 
+    /**
+     * Adds a star to an answer for every vote.
+     *
+     * @param holder holder containing the views
+     * @param amount the amount of stars to add
+     */
     private void setStars(AnswersViewHolder holder, int amount) {
         TextView[] stars;
 

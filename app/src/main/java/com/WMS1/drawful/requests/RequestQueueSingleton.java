@@ -19,6 +19,12 @@ public class RequestQueueSingleton {
         requestQueue = getRequestQueue();
     }
 
+    /**
+     * Returns a requestqueuesingleton instance, creates a new instance if it hasn't been called yet.
+     *
+     * @param context application context
+     * @return a requestqueuesingleton instance
+     */
     public static synchronized RequestQueueSingleton getInstance(Context context) {
         if (instance == null) {
             instance = new RequestQueueSingleton(context);

@@ -3,7 +3,6 @@ package com.WMS1.drawful.activities.game;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -22,6 +21,9 @@ public class WaitingForDrawingActivity extends AppCompatActivity {
         setWaitingText();
     }
 
+    /**
+     * Sets the waiting text.
+     */
     @SuppressLint("SetTextI18n")
     private void setWaitingText() {
         String username = getIntent().getStringExtra("USER_DRAWING");

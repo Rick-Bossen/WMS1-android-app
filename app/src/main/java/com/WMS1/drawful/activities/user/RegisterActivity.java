@@ -1,6 +1,5 @@
 package com.WMS1.drawful.activities.user;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,8 +11,6 @@ import com.WMS1.drawful.R;
 import com.WMS1.drawful.requests.RequestQueueSingleton;
 import com.WMS1.drawful.helpers.Validation;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
@@ -34,6 +31,12 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.passwordField);
     }
 
+    /**
+     * Tries to register the user using the entered credentials.
+     * Displays an error message when credentials are incorrect.
+     *
+     * @param view the view to call the function
+     */
     public void registerButton(View view) {
         if (!Validation.validateUsername(username.getText().toString())) {
             Toast.makeText(getApplicationContext(), "Invalid username", Toast.LENGTH_SHORT).show();

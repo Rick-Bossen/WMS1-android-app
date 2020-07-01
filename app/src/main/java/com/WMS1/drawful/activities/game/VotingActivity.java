@@ -5,10 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 ;
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import com.WMS1.drawful.R;
-import com.WMS1.drawful.adapters.AnswerlistAdapter;
 import com.WMS1.drawful.adapters.VotelistAdapter;
 import com.WMS1.drawful.helpers.SharedPrefrencesManager;
 import com.WMS1.drawful.views.CanvasView;
@@ -44,6 +42,10 @@ public class VotingActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Initializes the list of guesses by coupling the RecyclerView with the adapter and adding the
+     * guesses.
+     */
     private void initList() {
         HashMap<String, String> map = new HashMap<>();
         String userId = SharedPrefrencesManager.getInstance(getApplicationContext()).getUserId();

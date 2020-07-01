@@ -33,6 +33,13 @@ public class ShowingScoresActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Creates an ArrayList containing Strings with the usernames and scores to be displayed.
+     *
+     * @param jsonArray Array containing all the users
+     * @return  The ArrayList containing the Strings
+     * @throws JSONException if jsonArray can't be parsed
+     */
     private ArrayList<String> createScoreList(JSONArray jsonArray) throws JSONException {
         HashMap<String, Integer> scores = new HashMap<>();
         ArrayList<String> scoreStrings = new ArrayList<>();
@@ -50,6 +57,12 @@ public class ShowingScoresActivity extends AppCompatActivity {
         return scoreStrings;
     }
 
+    /**
+     * Initializes the scoreList by coupling the RecyclerView with the adapter and adding the
+     * Strings from the scorelist.
+     *
+     * @param scoreList ArrayList with Strings of usernames and scores
+     */
     private void initScoreList(ArrayList<String> scoreList) {
         RecyclerView users = this.findViewById(R.id.scoreList);
         users.setLayoutManager(new LinearLayoutManager(this));

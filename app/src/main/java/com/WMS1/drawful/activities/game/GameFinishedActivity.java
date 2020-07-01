@@ -17,6 +17,11 @@ public class GameFinishedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_finished);
     }
 
+    /**
+     * Returns to the JoinActivity and removes all previous activities from the stack
+     *
+     * @param view the view to call the function
+     */
     public void toJoinActivity(View view) {
         Intent intent = new Intent(this, JoinActivity.class);
         startActivity(intent);

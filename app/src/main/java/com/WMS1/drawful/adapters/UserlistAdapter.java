@@ -38,7 +38,11 @@ public class UserlistAdapter extends RecyclerView.Adapter<UserlistAdapter.ViewHo
         return mData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+    /**
+     * Inner class containing a textView
+     */
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView myTextView;
 
         ViewHolder(View itemView) {

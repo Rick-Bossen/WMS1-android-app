@@ -49,11 +49,17 @@ public class LobbyActivity extends AppCompatActivity {
         pending();
     }
 
+    /**
+     * Sets the join code to display.
+     */
     @SuppressLint("SetTextI18n")
     private void setCode() {
         code.setText("Join code: " + SharedPrefrencesManager.getInstance(getApplicationContext()).getJoinCode());
     }
 
+    /**
+     * Starts the refresh service to refresh the room in a fixed interval.
+     */
     private void setRefreshService() {
         RefreshRoomService service = new RefreshRoomService();
         this.service = service.runService(getApplicationContext(), json -> {
@@ -65,6 +71,9 @@ public class LobbyActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initiates the userlist by coupling the recyclerview and the adapter.
+     */
     private void initUserList() {
         RecyclerView users = findViewById(R.id.userList);
         users.setLayoutManager(new LinearLayoutManager(this));
@@ -72,6 +81,12 @@ public class LobbyActivity extends AppCompatActivity {
         users.setAdapter(adapter);
     }
 
+    /**
+     * Updates the userlist.
+     *
+     * @param json the json containing the userlist
+     * @throws JSONException if json can't be parsed
+     */
     private void updateRoom(JSONObject json) throws JSONException {
         JSONArray users = json.getJSONArray("users");
         ArrayList<String> userList = new ArrayList<>();
@@ -85,6 +100,9 @@ public class LobbyActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * Sends pending request and starts game once a response has been received.
+     */
     private void pending() {
         RequestQueueSingleton queue = RequestQueueSingleton.getInstance(getApplicationContext());
         SharedPrefrencesManager manager = SharedPrefrencesManager.getInstance(getApplicationContext());

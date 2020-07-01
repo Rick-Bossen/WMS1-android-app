@@ -37,6 +37,10 @@ public class VoteResultsActivity extends AppCompatActivity {
         initResultList();
     }
 
+    /**
+     * Initializes the result list by coupling the RecyclerView with the adapter and adding the
+     * vote results.
+     */
     private void initResultList() {
         HashMap<String, Integer> answers = new HashMap<>();
         AtomicReference<String> correct = new AtomicReference<>("");
